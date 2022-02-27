@@ -14,6 +14,7 @@ dependencies:
   # Visual Elements
   cupertino_icons: ^1.0.2
   animate_do: ^2.1.0
+  cached_network_image: ^3.2.0
   device_preview: ^1.0.0
 
   # State Management

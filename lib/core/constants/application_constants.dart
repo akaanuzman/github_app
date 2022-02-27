@@ -11,5 +11,5 @@ class ApplicationConstants {
 
   ApplicationConstants.init();
 
-  final String servicePath = "https://bulut.eyartu.com/app/";
+  final String servicePath = "https://api.github.com/users/";
 }

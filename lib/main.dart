@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
+import 'features/home/view/home_view.dart';
 
-void main() => runApp(MyApp());
+import 'core/init/navigation/navigation_route.dart';
+import 'core/init/navigation/navigation_service.dart';
+
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Material App Bar'),
-        ),
-        body: Center(
-          child: Container(
-            child: Text('Hello World'),
-          ),
-        ),
-      ),
+      navigatorKey: NavigationService.navigatorKey,
+      onGenerateRoute: NavigationRoute.generateRoute,
+      debugShowCheckedModeBanner: false,
+      title: 'Github App',
+      home: HomeView(),
     );
   }
 }
