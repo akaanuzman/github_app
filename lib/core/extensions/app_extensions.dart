@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import '../init/theme/custom_theme.dart';
@@ -19,7 +21,7 @@ extension ContextExtension on BuildContext {
 extension MediaQueryExtension on BuildContext {
   double get height => mediaQuery.size.height;
   double get width => mediaQuery.size.width;
-  
+
   double get extraLowValue => height * 0.0075;
   double get lowValue => height * 0.01;
   double get normalValue => height * 0.02;
@@ -35,7 +37,6 @@ extension DurationExtension on BuildContext {
   Duration get durationNormal => const Duration(seconds: 1);
   Duration get durationSlow => const Duration(seconds: 2);
   Duration get durationExtraSlow => const Duration(seconds: 3);
-
 }
 
 extension PaddingExtension on BuildContext {
@@ -78,7 +79,7 @@ extension BorderExtension on BuildContext {
       BorderRadius.all(Radius.circular(width * 0.02));
   BorderRadius get xxLowBorderRadius =>
       BorderRadius.all(Radius.circular(width * 0.01));
-        BorderRadius get lowBorderRadius =>
+  BorderRadius get lowBorderRadius =>
       BorderRadius.all(Radius.circular(width * 0.035));
   BorderRadius get highBorderRadius =>
       BorderRadius.all(Radius.circular(width * 0.1));
@@ -153,7 +154,9 @@ extension ThemeExtension on BuildContext {
   TextTheme get textTheme => CustomTextTheme(this);
 
   bool get isDarkMode => Theme.of(this).brightness == Brightness.dark;
-  
+
+  MaterialColor get randomColor => Colors.primaries[Random().nextInt(17)];
+
   Color get primaryColor => const Color(0xff3663F2);
   Color get primaryVariantColor => const Color(0xffEFF4FA);
   Color get textColor => const Color(0xFF394C66);
@@ -161,6 +164,7 @@ extension ThemeExtension on BuildContext {
   Color get yellowSea => const Color(0xffF1AE04);
   Color get royalBlue => const Color(0xff3663F2);
   Color get porselain => const Color(0xffF4F5F6);
+
   // I use Apple Human Interface Guidelines
   // For detailed information: https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/
   Color get red => isDarkMode

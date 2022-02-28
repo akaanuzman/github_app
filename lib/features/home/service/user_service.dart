@@ -1,10 +1,10 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import '../model/user_model.dart';
-import 'user_service_end_points.dart';
 
+import '../model/user_model.dart';
 import 'IUserService.dart';
+import 'user_service_end_points.dart';
 
 class UserService extends IUserService {
   UserService(Dio dio) : super(dio);
@@ -16,7 +16,6 @@ class UserService extends IUserService {
 
     if (response.statusCode == HttpStatus.ok) {
       final data = response.data;
-      print(data['login']);
       return UserModel(
           login: data['login'],
           avatar_url: data['avatar_url'],

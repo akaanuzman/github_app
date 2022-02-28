@@ -1,11 +1,10 @@
 import 'dart:async';
-import 'package:flutter/material.dart';
-import '../../../core/extensions/app_extensions.dart';
+
 import '../../../core/base/viewmodel/base_view_model.dart';
+import '../../../core/extensions/app_extensions.dart';
+import '../model/user_model.dart';
 import '../service/IUserService.dart';
 import '../service/user_service.dart';
-
-import '../model/user_model.dart';
 
 class HomeViewModel extends BaseViewModel {
   late IUserService userService;

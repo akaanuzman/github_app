@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'features/home/view/home_view.dart';
-
+import 'core/extensions/app_extensions.dart';
 import 'core/init/navigation/navigation_route.dart';
 import 'core/init/navigation/navigation_service.dart';
 
@@ -16,7 +16,13 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: NavigationRoute.generateRoute,
       debugShowCheckedModeBanner: false,
       title: 'Github App',
+      theme: _theme(context),
       home: HomeView(),
     );
   }
+
+  ThemeData _theme(BuildContext context) => ThemeData(
+        progressIndicatorTheme:
+            ProgressIndicatorThemeData(color: context.textColor),
+      );
 }

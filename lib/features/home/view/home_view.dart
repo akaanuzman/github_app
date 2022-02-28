@@ -5,11 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:github_app/core/base/view/base_view.dart';
 import 'package:github_app/core/components/circle_load/circle_load.dart';
 import 'package:github_app/core/components/image/responsive_image.dart';
-import 'package:github_app/core/components/text/headline6_text.dart';
 import 'package:github_app/core/components/text/subtitle1_text.dart';
 import 'package:github_app/core/extensions/app_extensions.dart';
 import 'package:github_app/core/components/textformfield/bordered_text_form_field.dart';
 import 'package:github_app/features/home/viewModel/home_view_model.dart';
+import 'package:github_app/features/repository/view/repository_view.dart';
+import 'package:github_app/product/components/appbar/special_appbar.dart';
 import 'package:github_app/product/components/button/special_icon_button.dart';
 import 'package:github_app/product/components/wrap/wrap_icon_text.dart';
 
@@ -24,19 +25,18 @@ class HomeView extends StatelessWidget {
           model.setContext(context);
           model.init();
         },
-        onPageBuilder: (BuildContext context, HomeViewModel viewModel) => Scaffold(
-            appBar: _appBar(context),
-            body: viewModel.isLoad
-                ? _loadedBody(context, viewModel)
-                : const CircleLoad(),
-          ),
+        onPageBuilder: (BuildContext context, HomeViewModel viewModel) =>
+            Scaffold(
+          appBar: _appBar(context),
+          body: viewModel.isLoad
+              ? _loadedBody(context, viewModel)
+              : const CircleLoad(),
+        ),
       );
 
-  AppBar _appBar(BuildContext context) => AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        centerTitle: false,
-        title: Headline6Text(context: context, data: "Profile"),
+  AppBar _appBar(BuildContext context) => SpeacialAppBar(
+        context: context,
+        title: "Profile",
       );
 
   FlipInX _loadedBody(BuildContext context, HomeViewModel viewModel) {
@@ -143,7 +143,12 @@ class HomeView extends StatelessWidget {
   GestureDetector _repositoryButton(
           BuildContext context, HomeViewModel viewModel) =>
       GestureDetector(
-        onTap: () {},
+        onTap: () => Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) =>
+                RepositoryView(username: viewModel.userModel.login ?? "sa"),
+          ),
+        ),
         child: AspectRatio(
           aspectRatio: 5,
           child: Container(

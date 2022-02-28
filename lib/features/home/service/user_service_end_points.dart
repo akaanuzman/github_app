@@ -2,7 +2,7 @@
 
 enum UserServiceEndPoints { USER }
 
-extension ProductServiceExtension on UserServiceEndPoints {
+extension UserServiceExtension on UserServiceEndPoints {
   String rawValue(String username) {
     switch (this) {
       case UserServiceEndPoints.USER:

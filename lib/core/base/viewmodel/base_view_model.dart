@@ -6,7 +6,6 @@ import '../../utils/app_validators.dart';
 
 abstract class BaseViewModel extends ChangeNotifier {
   late BuildContext context;
-  String accessToken = "";
 
   NetworkManager get networkManager => NetworkManager.instance;
   AppValidators get appValidator => AppValidators.instance;
