@@ -23,6 +23,9 @@ dependencies:
   # Api Connection
   dio: ^4.0.4
 
+  # Link
+  url_launcher: ^6.0.20
+
   # Json Operations
   json_annotation: ^4.4.0
   json_serializable: ^6.1.4

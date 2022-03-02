@@ -5,7 +5,12 @@ import 'core/extensions/app_extensions.dart';
 import 'core/init/navigation/navigation_route.dart';
 import 'core/init/navigation/navigation_service.dart';
 
-void main() => runApp(DevicePreview(builder: (_) => const MyApp()));
+void main() => runApp(
+      DevicePreview(
+        builder: (_) => const MyApp(),
+        enabled: false,
+      ),
+    );
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

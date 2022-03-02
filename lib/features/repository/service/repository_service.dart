@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import '../model/repository_model.dart';
 
+import '../model/repository_model.dart';
 import 'IRepositoryService.dart';
 import 'repository_service_end_points.dart';
 
