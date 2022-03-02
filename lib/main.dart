@@ -1,10 +1,11 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'features/home/view/home_view.dart';
 import 'core/extensions/app_extensions.dart';
 import 'core/init/navigation/navigation_route.dart';
 import 'core/init/navigation/navigation_service.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(DevicePreview(builder: (_) => const MyApp()));
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

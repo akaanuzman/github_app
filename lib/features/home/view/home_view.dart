@@ -8,11 +8,14 @@ import 'package:github_app/core/components/image/responsive_image.dart';
 import 'package:github_app/core/components/text/subtitle1_text.dart';
 import 'package:github_app/core/extensions/app_extensions.dart';
 import 'package:github_app/core/components/textformfield/bordered_text_form_field.dart';
+import 'package:github_app/features/follow/followers/view/followers_view.dart';
 import 'package:github_app/features/home/viewModel/home_view_model.dart';
 import 'package:github_app/features/repository/view/repository_view.dart';
 import 'package:github_app/product/components/appbar/special_appbar.dart';
 import 'package:github_app/product/components/button/special_icon_button.dart';
 import 'package:github_app/product/components/wrap/wrap_icon_text.dart';
+
+import '../../follow/following/view/following_view.dart';
 
 class HomeView extends StatelessWidget {
   var usernameController = TextEditingController();
@@ -127,15 +130,31 @@ class HomeView extends StatelessWidget {
             icon: Icons.mood,
             title: viewModel.userModel.name ?? "Has no name.",
           ),
-          WrapIconText(
-            context: context,
-            icon: Icons.group,
-            title: "${viewModel.userModel.followers} followers",
+          GestureDetector(
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) =>
+                    FollowersView(username: viewModel.userModel.login ?? "sa"),
+              ),
+            ),
+            child: WrapIconText(
+              context: context,
+              icon: Icons.group,
+              title: "${viewModel.userModel.followers} followers",
+            ),
           ),
-          WrapIconText(
-            context: context,
-            icon: Icons.groups,
-            title: "${viewModel.userModel.following} following",
+          GestureDetector(
+              onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) =>
+                    FollowingView(username: viewModel.userModel.login ?? "sa"),
+              ),
+            ),
+            child: WrapIconText(
+              context: context,
+              icon: Icons.groups,
+              title: "${viewModel.userModel.following} following",
+            ),
           )
         ],
       );
