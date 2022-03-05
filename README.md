@@ -11,7 +11,7 @@ https://user-images.githubusercontent.com/55639112/156660504-6123d2e6-dddd-45af-
 https://user-images.githubusercontent.com/55639112/156660637-55fa6a22-ef53-4460-89e3-fbb13285f9a6.mov
 
 ### 📁 Description
-I tried to clone github in this project. Thanks to this project, you can see your repository, followers, your following and information on your profile.
+I tried to clone github in this project.This project, you can see your repository, followers, your following and information on your profile.
 
 ### 📶 API
 Github API is used in this project. Data in the API is parsed with the ["json_serializable"](https://pub.dev/packages/json_serializable) and ["json_annotation"](https://pub.dev/packages/json_annotation) methods. The ["dio"](https://pub.dev/packages/dio) package is used to send requests to the API.
